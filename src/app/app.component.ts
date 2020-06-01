@@ -11,15 +11,18 @@ export class AppComponent {
   code = '';
   result = '';
 
-  constructor(private breaker: CodebreakerService) {}
+  constructor(private breaker: CodebreakerService) {
+    this.breaker.setSecret('6789').subscribe((data: any) => {})
+  }
 
   click() {
     if(this.code.length == 4) {
       this.breaker.getCodebreaker(this.code).subscribe((data: any) => {
         this.result = data.result;
       });
-    }
+    }else{
     this.result = 'Ingrese un número de 4 digitos';
+    }
   }
 
   generar() {

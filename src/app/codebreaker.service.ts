@@ -19,4 +19,11 @@ export class CodebreakerService {
     const url = 'http://localhost:3000/generate';
     return this.http.get(`${url}`);
   }
+
+  setSecret(secret) {
+    const url = 'http://localhost:3000/guess';
+    return this.http.post(`${url}`, {"secret": secret});
+  }
+
+
 }
